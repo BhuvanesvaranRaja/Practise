@@ -1,0 +1,38 @@
+import React, { Component } from "react";
+class From extends Component {
+  constructor() {
+    super();
+    this.state = {
+      name: "",
+      // age: "",
+      // ph_no: "",
+    };
+  }
+  fromValue = (event) => {
+    const { name, value } = event.target;
+    this.setState({ [name]: value });
+  };
+  display = (event) => {
+    event.preventDefault();
+    let { name } = this.state;
+    console.log(name);
+  };
+  render() {
+    return (
+      <>
+        <form>
+          <label htmlFor="name">NAME</label>
+          <input
+            id="name"
+            name="name"
+            value={this.name}
+            onChange={this.fromValue}></input>
+          <button type="submit" onClick={this.display}>
+            SUBMIT
+          </button>
+        </form>
+      </>
+    );
+  }
+}
+export default From;
